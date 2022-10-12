@@ -61,7 +61,9 @@
                                     <a href="{{ route('admin.prospects.dashboard') }}" class="dropdown-item">
                                         Manage Prospects
                                     </a>
-
+                                    <a href="{{ route('admin.prospects.search') }}" class="dropdown-item">
+                                        Search Prospects
+                                    </a>
 
                                 </div>
                             </li>

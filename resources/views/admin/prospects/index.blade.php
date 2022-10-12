@@ -2,6 +2,12 @@
 
 @section('content')
     <div class="container-fluid">
+        @if (session())
+            <div class="alert alert-success mt-3">
+                {{session('success')}}
+            </div>
+
+        @endif
         <div class="card mt-4">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
@@ -22,13 +28,8 @@
                         </div>
                     </div>
                 </div>
-                <hr>
-                @if (session())
-                    <div class="alert alert-success">
-                        {{session('success')}}
-                    </div>
 
-                @endif
+
                 @if($prospects->count())
                     <table class="table table-hover">
                         <thead>
@@ -59,7 +60,16 @@
                                 <td>{{$prospect->contact}}</td>
                                 <td>{{$prospect->position}}</td>
                                 <td>{{$prospect->pretty_created}}</td>
-                                <td></td>
+                                <td>
+                                    <custom-button
+                                        :title="'Edit Prospect'"
+                                        type="edit"
+                                        phone_one='{{$prospect->phone_one}}'
+                                        address='{{$prospect->address}}'
+                                        company="{{$prospect->company}}"
+                                    ></custom-button>
+                                    <a href="{{route('admin.prospects.show', $prospect->id)}}">View Prospect</a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
