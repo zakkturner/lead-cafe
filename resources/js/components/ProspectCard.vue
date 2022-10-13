@@ -11,7 +11,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="">All Prospects</a></li>
                         <li @click="edit = ! edit">
-                            <a class="dropdown-item" href="#" v-if="!edit" >Edit Prospect</a>
+                            <a class="dropdown-item" href="#" v-if="!edit">Edit Prospect</a>
                             <a class="dropdown-item" href="#" v-else>Show Prospect</a>
                         </li>
 
@@ -84,47 +84,51 @@
 
         </div>
         <div class="m1-auto" v-else>
-            <form action="" method="POST">
-                @csrf
+            <form action="" @submit.prevent="onSubmit">
+
                 <div class="form-group">
                     <label for="contact">Contact</label>
-                    <input type="text" class="form-control" name="contact">
+                    <input type="text" class="form-control" name="contact" v-model="contact">
                 </div>
                 <div class="form-group">
                     <label for="contact">Company *</label>
-                    <input type="text" class="form-control" name="company">
+                    <input type="text" class="form-control" name="company" v-model="company">
                 </div>
                 <div class="form-group">
                     <label for="contact">Phone One *</label>
-                    <input type="text" class="form-control" name="phone_one">
+                    <input type="text" class="form-control" name="phone_one" v-model="phone_one">
                 </div>
                 <div class="form-group">
                     <label for="contact">Phone Two</label>
-                    <input type="text" class="form-control" name="phone_two">
+                    <input type="text" class="form-control" name="phone_two" v-model="phone_two">
                 </div>
                 <div class="form-group">
-                    <label for="contact">Website URL</label>
-                    <input type="text" class="form-control" name="web_url">
+                    <label for="">Website URL</label>
+                    <input type="text" class="form-control" v-model="web_url" name="web_url">
                 </div>
                 <div class="form-group">
-                    <label for="contact">Address *</label>
-                    <input type="text" class="form-control" name="address">
+                    <label for="address">Address </label>
+                    <input type="text" class="form-control" v-model="address" name="address">
                 </div>
                 <div class="form-group">
-                    <label for="contact">Email</label>
-                    <input type="email" class="form-control" name="email">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" v-model="email" name="email">
                 </div>
                 <div class="form-group">
-                    <label for="contact">Position</label>
-                    <input type="text" class="form-control" name="position">
+                    <label for="position">Position</label>
+                    <input type="text" class="form-control" v-model="position" name="position">
                 </div>
                 <div class="form-group">
-                    <label for="contact">Notes</label>
-                    <textarea cols="5" rows="5" class="form-control" name="notes"></textarea>
+                    <label for="notes">Notes</label>
+                    <textarea cols="5" rows="5" class="form-control" name="notes" v-model="notes"></textarea>
                 </div>
                 <div class="d-flex justify-content-end pt-2">
-                    <button type="submit" class="btn btn-success">Create Prospect</button>
+                    <button type="submit" class="btn btn-success">Update Prospect</button>
                 </div>
+
+
+                <pre>data: {{ $data }}</pre>
+
             </form>
         </div>
     </div>
@@ -133,13 +137,45 @@
 
 <script>
 export default {
+    props: ['idprop','contactprop', 'companyprop', 'phone_oneprop', 'phone_twoprop', 'addressprop', 'websiteprop', 'emailprop', 'positionprop', 'notesprop'],
+
     data() {
         return {
-            edit: false
-        }
-    },
+            edit: false,
+            id: this.idprop,
+            contact: this.contactprop,
+            company: this.companyprop,
+            phone_one: this.phone_oneprop,
+            phone_two: this.phone_twoprop,
+            address: this.addressprop,
+            web_url: this.websiteprop,
+            email: this.emailprop,
+            position: this.positionprop,
+            notes: this.notesprop
 
-    props: ['contact', 'company', 'phone_one', 'phone_two', 'address', 'web_url', 'email', 'position', 'notes'],
+        }
+
+    },
+    methods: {
+        onSubmit(e) {
+            const prospectUpdate ={
+
+                contact: this.contact,
+                company: this.company,
+                phone_one: this.phone_one,
+                phone_two: this.phone_two,
+                address: this.address,
+                web_url: this.web_url,
+                email: this.email,
+                position: this.position,
+                notes: this.notes
+            }
+// console.log(prospectUpdate)
+            axios.put(`http://localhost:8000/prospects/update/${this.id}`, prospectUpdate ).then(response => console.log(response.data))
+
+
+        }
+    }
 }
 </script>
 

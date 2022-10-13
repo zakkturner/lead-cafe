@@ -80,7 +80,7 @@ class ProspectsController extends Controller {
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -88,11 +88,15 @@ class ProspectsController extends Controller {
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function update(Request $request, $id)
     {
-        //
+        $prospect = Prospect::findOrFail($id)->update($request->all());
+        return 'updated successfully';
+
+
+
     }
 
     /**
