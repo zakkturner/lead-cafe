@@ -22,6 +22,8 @@ window.Vue = require('vue').default;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('custom-button', require('./components/CustomButton.vue').default);
 Vue.component('prospect-card', require('./components/ProspectCard.vue').default);
+Vue.component('custom-message', require('./components/CustomMessage.vue').default);
+Vue.component('custom-modal', require('./components/CustomModal.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

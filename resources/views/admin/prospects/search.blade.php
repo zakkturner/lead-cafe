@@ -33,7 +33,7 @@
                     </div>
                 @endif
 
-{{--<search-component></search-component>--}}
+                {{--<search-component></search-component>--}}
                 <form action="{{route('admin.prospects.search')}}" method="POST">
                     @csrf
                     <div class="form-group">
@@ -71,7 +71,13 @@
                                     <td>{{$item->phone}}</td>
                                     <td>{{$item->type}}</td>
 
-                                    <td>{{$item->website}}</td>
+                                    <td>
+                                        @if($item->website)
+                                            {{$item->website}}
+                                        @else
+                                            No website
+                                        @endif
+                                    </td>
 
 
                                     <td>
@@ -88,15 +94,9 @@
                             </tbody>
                         </table>
 
-
-
-
-
-
-
                     @else
 
-                   No results. Please Enter New Query
+                        No results. Please Enter New Query
                     @endif
                 </div>
 
