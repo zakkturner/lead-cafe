@@ -1,5 +1,12 @@
 <template>
     <div class="card mt-4">
+        <custom-modal :modalOpen="modalOpen" :idprop="id" @modalClose="closeModal"></custom-modal>
+        <custom-message
+            :messageprop="message"
+            :successprop="success"
+            :failprop="failure"
+            v-if="showMsg"
+        ></custom-message>
         <div class="card-header d-flex justify-content-between">
             View {{ company }}
             <div class="m1-auto">
@@ -15,7 +22,7 @@
                             <a class="dropdown-item" href="#" v-else>Show Prospect</a>
                         </li>
 
-                        <li><a class="dropdown-item" href="#">Delete Prospect</a></li>
+                        <li><p class="dropdown-item" @click="modalOpen = true">Delete Prospect</p></li>
                     </ul>
                 </div>
             </div>
@@ -127,8 +134,6 @@
                 </div>
 
 
-                <pre>data: {{ $data }}</pre>
-
             </form>
         </div>
     </div>
@@ -137,11 +142,16 @@
 
 <script>
 export default {
-    props: ['idprop','contactprop', 'companyprop', 'phone_oneprop', 'phone_twoprop', 'addressprop', 'websiteprop', 'emailprop', 'positionprop', 'notesprop'],
+
+    props: ['idprop', 'contactprop', 'companyprop', 'phone_oneprop', 'phone_twoprop', 'addressprop', 'websiteprop', 'emailprop', 'positionprop', 'notesprop'],
 
     data() {
         return {
             edit: false,
+            showMsg: false,
+            message: '',
+            success: false,
+            failure: false,
             id: this.idprop,
             contact: this.contactprop,
             company: this.companyprop,
@@ -151,14 +161,14 @@ export default {
             web_url: this.websiteprop,
             email: this.emailprop,
             position: this.positionprop,
-            notes: this.notesprop
-
+            notes: this.notesprop,
+            modalOpen: false
         }
 
     },
     methods: {
         onSubmit(e) {
-            const prospectUpdate ={
+            const prospectUpdate = {
 
                 contact: this.contact,
                 company: this.company,
@@ -170,10 +180,34 @@ export default {
                 position: this.position,
                 notes: this.notes
             }
-// console.log(prospectUpdate)
-            axios.put(`http://localhost:8000/prospects/update/${this.id}`, prospectUpdate ).then(response => console.log(response.data))
+
+            axios.put(`http://localhost:8000/prospects/update/${this.id}`, prospectUpdate)
+                .then(response => {
+                        this.message = response.data;
+                        this.showMsg = true;
+                        this.success = true;
+                        this.failure = false;
+                        setTimeout(() => {
+                            this.edit = false;
+                        }, 500)
+                    }
+                ).catch((err) => {
+
+                    this.message = err.message;
+                    this.showMsg = true
+                    this.success = false;
+                    this.failure = true
+                    setTimeout(() => {
+                        this.edit = false;
+                    }, 500)
+
+                }
+            )
 
 
+        },
+        closeModal(){
+            this.modalOpen =false;
         }
     }
 }
