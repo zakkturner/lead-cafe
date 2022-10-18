@@ -23,7 +23,7 @@ export default {
                 "website": this.website
             }
 
-           axios.post('http://localhost:8000/prospects/', newProspect).then(response => console.log('added successfully'))
+           axios.post('/prospects/', newProspect).then(response => console.log('added successfully'))
         }
     }
 }

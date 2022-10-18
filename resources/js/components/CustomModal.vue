@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         deleteRequest: function(){
-           axios.delete('http://localhost:8000/prospects/delete/' +  this.id)
+           axios.delete('/prospects/delete/' +  this.id)
                .then((response)=> {console.log(response.data)})
                .then(()=> {
                    this.$emit('modalClose')

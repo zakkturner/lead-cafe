@@ -181,7 +181,7 @@ export default {
                 notes: this.notes
             }
 
-            axios.put(`http://localhost:8000/prospects/update/${this.id}`, prospectUpdate)
+            axios.put(`/prospects/update/${this.id}`, prospectUpdate)
                 .then(response => {
                         this.message = response.data;
                         this.showMsg = true;
