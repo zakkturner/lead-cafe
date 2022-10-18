@@ -103,11 +103,20 @@ class ProspectsController extends Controller {
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response,
      */
     public function destroy($id)
     {
-        //
+
+        $prospect = Prospect::findOrFail($id)->delete();
+        if (\request()->wantsJson()) {
+            return response()->json([
+                'alert_delete' => 'Selected query is deleted successfully.'
+            ]);
+        }
+
+        return redirect()->to('/prospects')->with('success', 'Selected query is deleted successfully.');
+
     }
 
     public function search(Request $request)
