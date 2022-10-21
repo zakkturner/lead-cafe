@@ -5329,7 +5329,7 @@ __webpack_require__.r(__webpack_exports__);
         "company": this.company,
         "website": this.website
       };
-      axios.post('http://localhost:8000/prospects/', newProspect).then(function (response) {
+      axios.post('/prospects/', newProspect).then(function (response) {
         return console.log('added successfully');
       });
     }
@@ -5408,7 +5408,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteRequest: function deleteRequest() {
       var _this = this;
 
-      axios["delete"]('http://localhost:8000/prospects/delete/' + this.id).then(function (response) {
+      axios["delete"]('/prospects/delete/' + this.id).then(function (response) {
         console.log(response.data);
       }).then(function () {
         _this.$emit('modalClose');
@@ -5648,7 +5648,7 @@ __webpack_require__.r(__webpack_exports__);
         position: this.position,
         notes: this.notes
       };
-      axios.put("http://localhost:8000/prospects/update/".concat(this.id), prospectUpdate).then(function (response) {
+      axios.put("/prospects/update/".concat(this.id), prospectUpdate).then(function (response) {
         _this.message = response.data;
         _this.showMsg = true;
         _this.success = true;
@@ -11031,7 +11031,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.modal-header[data-v-1162baa1] {\r\n    background: #6a1a21;\r\n    color: #ffffff;\n}\n.modal-open[data-v-1162baa1]{\r\n    display: flex;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.modal-header[data-v-1162baa1] {\n    background: #6a1a21;\n    color: #ffffff;\n}\n.modal-open[data-v-1162baa1]{\n    display: flex;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11055,7 +11055,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.list-group-item[data-v-0dde1eb2] {\r\n    display: flex;\r\n    flex-direction: column;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.list-group-item[data-v-0dde1eb2] {\n    display: flex;\n    flex-direction: column;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
