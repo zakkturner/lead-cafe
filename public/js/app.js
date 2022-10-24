@@ -5320,14 +5320,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['title', 'phone_one', 'address', 'company', 'website'],
+  props: ['title', 'phone_one', 'address', 'company', 'website', 'prospect'],
+  mounted: function mounted() {
+    console.log(this.prospect);
+  },
   methods: {
     addProspect: function addProspect(event) {
       var newProspect = {
-        "phone_one": this.phone_one,
-        "address": this.address,
-        "company": this.company,
-        "website": this.website
+        "phone_one": this.prospect.phone_one,
+        "address": this.prospect.address,
+        "company": this.prospect.company,
+        "website": this.prospect.website
       };
       axios.post('/prospects/', newProspect).then(function (response) {
         return console.log('added successfully');
@@ -11031,7 +11034,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.modal-header[data-v-1162baa1] {\n    background: #6a1a21;\n    color: #ffffff;\n}\n.modal-open[data-v-1162baa1]{\n    display: flex;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.modal-header[data-v-1162baa1] {\r\n    background: #6a1a21;\r\n    color: #ffffff;\n}\n.modal-open[data-v-1162baa1]{\r\n    display: flex;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11055,7 +11058,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.list-group-item[data-v-0dde1eb2] {\n    display: flex;\n    flex-direction: column;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.list-group-item[data-v-0dde1eb2] {\r\n    display: flex;\r\n    flex-direction: column;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

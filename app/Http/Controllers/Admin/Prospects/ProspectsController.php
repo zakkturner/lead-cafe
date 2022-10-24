@@ -134,16 +134,18 @@ class ProspectsController extends Controller {
                 "google_domain" => "google.com",
                 "q" => $q,
                 "hl" => "en",
-                "ll" => "@40.7455096,-74.0083012,14z",
+                "ll" => "@33.7455096,-84.0083012,14z",
                "num" => "50"
             ];
 
             $search = new GoogleSearch('869a3e4a2dd98e6eb454e4b2da28e81ebcd7762ff2f71a71c732a1dc353de165');
             $results = $search->get_json($query)->local_results;
-//            ddd($results);
+
 
 
         }
+
+
 
         return view('admin.prospects.search')->with('results', $results);
 //        return view('admin.prospects.search', );

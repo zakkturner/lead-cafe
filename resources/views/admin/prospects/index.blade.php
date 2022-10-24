@@ -22,8 +22,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{route('admin.prospects.create')}}">Create
                                         Prospect</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -61,14 +60,14 @@
                                 <td>{{$prospect->position}}</td>
                                 <td>{{$prospect->pretty_created}}</td>
                                 <td>
-                                    <custom-button
-                                        :title="'Edit Prospect'"
-                                        type="edit"
-                                        phone_one='{{$prospect->phone_one}}'
-                                        address='{{$prospect->address}}'
-                                        company="{{$prospect->company}}"
-                                    ></custom-button>
-                                    <a href="{{route('admin.prospects.show', $prospect->id)}}">View Prospect</a>
+{{--                                    <custom-button--}}
+{{--                                        :title="'Edit Prospect'"--}}
+{{--                                        type="edit"--}}
+{{--                                        phone_one='{{$prospect->phone_one}}'--}}
+{{--                                        address='{{$prospect->address}}'--}}
+{{--                                        company="{{$prospect->company}}"--}}
+{{--                                    ></custom-button>--}}
+                                    <a href="{{route('admin.prospects.show', $prospect->id)}}" class="btn btn-primary">View Prospect</a>
                                 </td>
                             </tr>
                         @endforeach
