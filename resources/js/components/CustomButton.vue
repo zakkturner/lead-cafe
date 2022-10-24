@@ -21,12 +21,12 @@ export default {
         addProspect(event){
             let newProspect = {
 
-                "phone_one": this.prospect.phone_one,
+                "phone_one": this.prospect.phone,
                 "address": this.prospect.address,
-                "company": this.prospect.company,
+                "company": this.prospect.title,
                 "website": this.prospect.website
             }
-
+            // console.log(newProspect)
            axios.post('/prospects/', newProspect).then(response => console.log('added successfully'))
         }
     }

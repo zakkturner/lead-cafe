@@ -5327,11 +5327,12 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addProspect: function addProspect(event) {
       var newProspect = {
-        "phone_one": this.prospect.phone_one,
+        "phone_one": this.prospect.phone,
         "address": this.prospect.address,
-        "company": this.prospect.company,
+        "company": this.prospect.title,
         "website": this.prospect.website
-      };
+      }; // console.log(newProspect)
+
       axios.post('/prospects/', newProspect).then(function (response) {
         return console.log('added successfully');
       });
