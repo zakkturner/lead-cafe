@@ -13,3 +13,4 @@ Route::delete('/delete/{id}', [ProspectsController::class, 'destroy'])->name('de
 Route::get('search', [ProspectsController::class, 'search'])->name('search');
 Route::post('search', [ProspectsController::class, 'search'])->name('search');
 Route::post('/', [ProspectsController::class, 'store'])->name('store');
+Route::get('/prospect_export', [ProspectsController::class, 'get_prospect_data'])->name('export');

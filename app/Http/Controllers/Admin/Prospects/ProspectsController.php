@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin\Prospects;
 
+use App\Exports\ProspectsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Prospects\StoreProspectRequest;
 use App\Models\Prospect;
 use Illuminate\Http\Request;
 use GoogleSearch;
+use Maatwebsite\Excel\Facades\Excel;
 class ProspectsController extends Controller {
     /**
      * Display a listing of the resource.
@@ -149,5 +151,9 @@ class ProspectsController extends Controller {
 
         return view('admin.prospects.search')->with('results', $results);
 //        return view('admin.prospects.search', );
+    }
+
+    public function get_prospect_data(){
+        return Excel::download(new ProspectsExport, 'prospects.xlsx');
     }
 }

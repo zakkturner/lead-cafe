@@ -28,6 +28,7 @@ class StoreProspectRequest extends FormRequest
 
             'company' => 'required',
             'address' => 'required',
+
             'phone_one' => 'required'
         ];
     }
