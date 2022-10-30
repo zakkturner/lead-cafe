@@ -22,7 +22,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{route('admin.prospects.create')}}">Create
                                         Prospect</a></li>
-
+                                <li><a class="dropdown-item" href="{{route('admin.prospects.export')}}">Download as Excel</a></li>
                             </ul>
                         </div>
                     </div>
