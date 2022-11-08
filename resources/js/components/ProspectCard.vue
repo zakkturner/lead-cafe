@@ -18,7 +18,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="">All Prospects</a></li>
                         <li @click="edit = ! edit">
-                            <a class="dropdown-item" href="#" v-if="!edit">Edit Prospect</a>
+                            <button class="dropdown-item"  v-if="!edit">Edit Prospect</button>
                             <a class="dropdown-item" href="#" v-else>Show Prospect</a>
                         </li>
 
@@ -67,7 +67,7 @@
                     <strong>
                         Website:
                     </strong>
-                    {{ web_url }}
+                    {{ website }}
                 </li>
                 <li class="list-group-item">
                     <strong>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Website URL</label>
-                    <input type="text" class="form-control" v-model="web_url" name="web_url">
+                    <input type="text" class="form-control" v-model="website" name="website">
                 </div>
                 <div class="form-group">
                     <label for="address">Address </label>
@@ -158,7 +158,7 @@ export default {
             phone_one: this.phone_oneprop,
             phone_two: this.phone_twoprop,
             address: this.addressprop,
-            web_url: this.websiteprop,
+            website: this.websiteprop,
             email: this.emailprop,
             position: this.positionprop,
             notes: this.notesprop,
@@ -175,12 +175,12 @@ export default {
                 phone_one: this.phone_one,
                 phone_two: this.phone_two,
                 address: this.address,
-                web_url: this.web_url,
+                website: this.website,
                 email: this.email,
                 position: this.position,
                 notes: this.notes
             }
-
+            console.log(prospectUpdate)
             axios.put(`/prospects/update/${this.id}`, prospectUpdate)
                 .then(response => {
                         this.message = response.data;
@@ -207,7 +207,7 @@ export default {
 
         },
         closeModal(){
-            this.modalOpen =false;
+            this.modalOpen = false;
         }
     }
 }

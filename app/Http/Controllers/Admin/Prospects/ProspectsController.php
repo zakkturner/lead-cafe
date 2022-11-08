@@ -46,7 +46,7 @@ class ProspectsController extends Controller {
             'company' => $request->company,
             'phone_one' => $request->phone_one,
             'phone_two' => $request->phone_two,
-            'web_url' => $request->web_url,
+            'website' => $request->website,
             'address' => $request->address,
             'email' => $request->email,
             'position' => $request->position,
@@ -94,6 +94,7 @@ class ProspectsController extends Controller {
      */
     public function update(Request $request, $id)
     {
+
         $prospect = Prospect::findOrFail($id)->update($request->all());
         return 'updated successfully';
 
@@ -105,7 +106,7 @@ class ProspectsController extends Controller {
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response,
+     * @return \Illuminate\Http\JsonResponse,
      */
     public function destroy($id)
     {

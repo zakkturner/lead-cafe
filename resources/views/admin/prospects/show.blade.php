@@ -20,7 +20,7 @@
             phone_oneprop="{{$prospect->phone_one}}"
             phone_twoprop="{{$prospect->phone_two}}"
             addressprop="{{$prospect->address}}"
-            websiteprop="{{$prospect->web_url}}"
+            websiteprop="{{$prospect->website}}"
             emailprop="{{$prospect->email}}"
             positionprop="{{$prospect->position}}"
             notesprop="{{$prospect->notes}}"
