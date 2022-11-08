@@ -19,7 +19,7 @@ class CreateProspectsTable extends Migration {
             $table->string('phone_one');
             $table->string('phone_two')->nullable();
             $table->string('address');
-            $table->string('web_url')->nullable();
+            $table->string('website')->nullable();
             $table->string('email')->nullable();
             $table->string('position')->nullable();
             $table->longText('notes')->nullable();

@@ -5630,7 +5630,7 @@ __webpack_require__.r(__webpack_exports__);
       phone_one: this.phone_oneprop,
       phone_two: this.phone_twoprop,
       address: this.addressprop,
-      web_url: this.websiteprop,
+      website: this.websiteprop,
       email: this.emailprop,
       position: this.positionprop,
       notes: this.notesprop,
@@ -5647,11 +5647,12 @@ __webpack_require__.r(__webpack_exports__);
         phone_one: this.phone_one,
         phone_two: this.phone_two,
         address: this.address,
-        web_url: this.web_url,
+        website: this.website,
         email: this.email,
         position: this.position,
         notes: this.notes
       };
+      console.log(prospectUpdate);
       axios.put("/prospects/update/".concat(this.id), prospectUpdate).then(function (response) {
         _this.message = response.data;
         _this.showMsg = true;
@@ -11059,7 +11060,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.list-group-item[data-v-0dde1eb2] {\r\n    display: flex;\r\n    flex-direction: column;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.list-group-item[data-v-0dde1eb2] {\n    display: flex;\n    flex-direction: column;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29611,11 +29612,9 @@ var render = function () {
                 },
                 [
                   !_vm.edit
-                    ? _c(
-                        "a",
-                        { staticClass: "dropdown-item", attrs: { href: "#" } },
-                        [_vm._v("Edit Prospect")]
-                      )
+                    ? _c("button", { staticClass: "dropdown-item" }, [
+                        _vm._v("Edit Prospect"),
+                      ])
                     : _c(
                         "a",
                         { staticClass: "dropdown-item", attrs: { href: "#" } },
@@ -29705,7 +29704,7 @@ var render = function () {
                   _vm._v("\n                    Website:\n                "),
                 ]),
                 _vm._v(
-                  "\n                " + _vm._s(_vm.web_url) + "\n            "
+                  "\n                " + _vm._s(_vm.website) + "\n            "
                 ),
               ]),
               _vm._v(" "),
@@ -29870,19 +29869,19 @@ var render = function () {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.web_url,
-                        expression: "web_url",
+                        value: _vm.website,
+                        expression: "website",
                       },
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "text", name: "web_url" },
-                    domProps: { value: _vm.web_url },
+                    attrs: { type: "text", name: "website" },
+                    domProps: { value: _vm.website },
                     on: {
                       input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.web_url = $event.target.value
+                        _vm.website = $event.target.value
                       },
                     },
                   }),

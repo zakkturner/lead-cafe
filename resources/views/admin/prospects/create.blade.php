@@ -53,7 +53,7 @@
                     </div>
                     <div class="form-group">
                         <label for="contact">Website URL</label>
-                        <input type="text" class="form-control" name="web_url">
+                        <input type="text" class="form-control" name="website">
                     </div>
                     <div class="form-group">
                         <label for="contact">Address *</label>
