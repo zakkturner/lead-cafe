@@ -19,7 +19,7 @@ class ProspectsExport implements FromCollection, WithHeadings
             'phone_one',
             'phone_two',
             'address',
-            'web_url',
+            'website',
             'email',
             'position',
             'notes',
