@@ -1,17 +1,22 @@
 @extends('layouts.app');
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid d-flex home-container">
         @if (session())
-            <div class="alert alert-success mt-3">
-                {{session('success')}}
-            </div>
+{{--            <div class="alert alert-success mt-3">--}}
+{{--                {{ session('success')}}--}}
+{{--            </div>--}}
 
         @endif
-        <div class="card mt-4">
+
+
+        <side-bar title="Filter By City:"></side-bar>
+
+        <div class="card mt-4 w-60 ms-2">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <h1>Prospects <small class="text-muted">Showing All Prospects</small></h1>
+
 
                     <div class="m1-auto">
                         <div class="dropdown">
@@ -26,11 +31,15 @@
                             </ul>
                         </div>
                     </div>
+
                 </div>
 
 
+
                 @if($prospects->count())
+
                     <table class="table table-hover">
+
                         <thead>
                         <tr>
                             <th>Notes</th>
@@ -60,13 +69,7 @@
                                 <td>{{$prospect->position}}</td>
                                 <td>{{$prospect->pretty_created}}</td>
                                 <td>
-{{--                                    <custom-button--}}
-{{--                                        :title="'Edit Prospect'"--}}
-{{--                                        type="edit"--}}
-{{--                                        phone_one='{{$prospect->phone_one}}'--}}
-{{--                                        address='{{$prospect->address}}'--}}
-{{--                                        company="{{$prospect->company}}"--}}
-{{--                                    ></custom-button>--}}
+
                                     <a href="{{route('admin.prospects.show', $prospect->id)}}" class="btn btn-primary">View Prospect</a>
                                 </td>
                             </tr>

@@ -22,6 +22,10 @@ class ProspectsController extends Controller {
 
     }
 
+    public function all()
+    {
+        return Prospect::all();
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -158,3 +162,4 @@ class ProspectsController extends Controller {
         return Excel::download(new ProspectsExport, 'prospects.xlsx');
     }
 }
+
