@@ -28,6 +28,10 @@ Vue.component(
     require("./components/CustomButton.vue").default
 );
 Vue.component(
+    "prospect-list",
+    require("./components/ProspectList.vue").default
+);
+Vue.component(
     "prospect-card",
     require("./components/ProspectCard.vue").default
 );
