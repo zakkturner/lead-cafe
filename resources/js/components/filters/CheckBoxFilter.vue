@@ -4,7 +4,7 @@
         <form class="form-control">
 
         <div class="form-check" v-for="city of cities">
-            <input class="form-check-input" type="checkbox" :value="city" :id="city" v-model="selected">
+            <input class="form-check-input" type="checkbox" :value="city" :id="city" v-model="selectedCities">
             <label class="form-check-label" :for="city">
                 {{ city }}
             </label>
@@ -16,13 +16,13 @@
 
 <script>
 export default {
-    name: "SearchFilter",
+    name: "CheckBoxFilter",
     // props: ['prospects'],
    data(){
     return{
         prospects: [],
         cities: [],
-        selected: []
+        selectedCities: []
     }
    },
   async created() {
@@ -47,7 +47,14 @@ export default {
     methods:{
         submitFilter(e){
             e.preventDefault();
-            console.log(this.selected)
+            console.log(this.selectedCities)
+           const res = axios.get('http://localhost:8000/api/prospects/all', {
+                headers: {'content-type': 'application/x-www-form-urlencoded'},
+                    params: {
+                        selectedCities: this.selectedCities
+                    }
+                }
+           )
         }
     }
 

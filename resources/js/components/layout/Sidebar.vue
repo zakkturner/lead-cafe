@@ -6,7 +6,10 @@
 </template>
 
 <script>
-import SearchFilter from "../SearchFilter";
+import SearchFilter from "../filters/SearchFilter";
+import CheckBoxFilterFilter from "../filters/CheckBoxFilter";
+
+
 export default {
     name: "Sidebar",
     props: ['title'],

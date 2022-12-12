@@ -13,12 +13,17 @@ class ProspectsController extends Controller {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
+        $prospects = Prospect::latest();
+        if(request('search')){
+            dd(request('search'));
+            $prospects->where('company', 'like', '%' . request('search'). '%');
+        }
         //Show all prospects and manage
-        return view('admin.prospects.index', ['prospects' => Prospect::latest()->paginate(20)]);
+        return view('admin.prospects.index', ['prospects' => $prospects->paginate(20)]);
 
     }
 
