@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('prospects/all', [ProspectsController::class, 'all']);
+
+Route::get('prospects/filter', [ProspectsController::class, 'filteredProspect']);

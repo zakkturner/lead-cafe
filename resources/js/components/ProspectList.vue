@@ -31,6 +31,7 @@ export default {
     setup(){
         const prospectStore = useProspectStore();
         prospectStore.fetchProspects()
+
         const prospects = computed(()=> prospectStore.getProspects)
         console.log(prospects)
         return{prospects}

@@ -31,6 +31,18 @@ class ProspectsController extends Controller {
     {
         return Prospect::all();
     }
+
+    public function filteredProspect()
+    {
+        $prospects = Prospect::latest();
+        if(request('search')){
+           $prospects = $prospects->where('company', 'like', '%' . request('search'). '%')->get();
+        }
+        //Show all prospects and manage
+        return $prospects;
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

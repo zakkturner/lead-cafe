@@ -25,18 +25,20 @@ export const useProspectStore = defineStore("prospects", {
                 console.log(error);
             }
         },
-        // async fetchAsset(id : string | string[]){
-        //     try {
-        //         console.log(id)
-        //         const data = await axios.get(`http://localhost:8000/api/asset/${id}`);
-        //         this.asset = data.data
-        //         this.isLoading = false;
-        //         console.log(this.asset)
-        //     }
-        //     catch (error) {
-        //         alert(error)
-        //         console.log(error)
-        //     }
-        // }
+        async fetchProspect(searchQuery){
+            try {
+
+
+
+                const data = await axios.get(`http://localhost:8000/api/prospects/filter/?search=${searchQuery}`);
+                this.prospects = data.data
+                // this.isLoading = false;
+                // console.log(this.asset)
+            }
+            catch (error) {
+                alert(error)
+                console.log(error)
+            }
+        }
     },
 });

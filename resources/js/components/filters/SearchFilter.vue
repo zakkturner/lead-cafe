@@ -9,22 +9,23 @@
     </div>
 </template>
 
-<script>
+<script >
+import { defineComponent, ref } from 'vue';
+import { useProspectStore } from "../../store/ProspectStore";
+
 export default {
     name: "SearchFilter",
-   data() {
-       return {
+   setup(){
+       const prospectStore = useProspectStore()
 
-           searchQuery: ""
+        const searchQuery = ref("")
+       const submitSearch = (e)=>{
+           e.preventDefault();
+
+            prospectStore.fetchProspect(searchQuery.value);
        }
-   },
-    methods:{
-        submitSearch(e){
-            e.preventDefault()
-            console.log('http://localhost:8000/?search=' + this.searchQuery)
-            axios.get('http://localhost:8000/prospects', {params: {search: this.searchQuery}} ).then((response)=>console.log(response)).catch((err)=>console.log(err))
-        }
-    }
+       return {submitSearch, searchQuery}
+   }
 }
 </script>
 

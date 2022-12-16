@@ -1,4 +1,7 @@
 <template>
+    <main class="d-flex">
+
+    <sidebar></sidebar>
     <div class="card mt-4 w-60 ms-2">
         <div class="card-body">
             <div class="d-flex justify-content-between">
@@ -49,6 +52,7 @@
 
         </div>
     </div>
+    </main>
 
 <!--<main class="prospects-container">-->
 <!--    <prospect-list></prospect-list>-->
@@ -57,9 +61,10 @@
 
 <script>
 import ProspectList from "./components/ProspectList";
+import Sidebar from "./components/layout/Sidebar";
 export default {
     name: "App.vue",
-    components: { ProspectList },
+    components: {Sidebar, ProspectList },
     setup(){}
 
 }
