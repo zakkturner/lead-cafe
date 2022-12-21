@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\Prospects\ProspectsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +17,3 @@ use App\Http\Controllers\Admin\Prospects\ProspectsController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('prospects/all', [ProspectsController::class, 'all']);
-
-Route::get('prospects/filter', [ProspectsController::class, 'filteredProspect']);
