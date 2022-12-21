@@ -133,7 +133,7 @@ class ProspectsController extends Controller {
     {
 
         $prospect = Prospect::findOrFail($id)->delete();
-        if (\request()->wantsJson()) {
+        if (request()->wantsJson()) {
             return response()->json([
                 'alert_delete' => 'Selected query is deleted successfully.'
             ]);
@@ -176,6 +176,7 @@ class ProspectsController extends Controller {
     }
 
     public function get_prospect_data(){
+
         return Excel::download(new ProspectsExport, 'prospects.xlsx');
     }
 }
