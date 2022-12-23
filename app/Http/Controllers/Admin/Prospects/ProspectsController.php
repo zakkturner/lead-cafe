@@ -133,7 +133,7 @@ class ProspectsController extends Controller {
     {
 
         $prospect = Prospect::findOrFail($id)->delete();
-        if (\request()->wantsJson()) {
+        if (request()->wantsJson()) {
             return response()->json([
                 'alert_delete' => 'Selected query is deleted successfully.'
             ]);
@@ -175,7 +175,9 @@ class ProspectsController extends Controller {
 //        return view('admin.prospects.search', );
     }
 
-    public function get_prospect_data(){
+    public function get_prospect_data(): \Symfony\Component\HttpFoundation\BinaryFileResponse
+    {
+
         return Excel::download(new ProspectsExport, 'prospects.xlsx');
     }
 }

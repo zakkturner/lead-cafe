@@ -26,7 +26,7 @@ export default {
     }
    },
   async created() {
-     await axios.get('http://localhost:8000/api/prospects/all').then(response => this.prospects = JSON.parse(JSON.stringify(response.data)) )
+     // await axios.get('http://localhost:8000/api/prospects/all').then(response => this.prospects = JSON.parse(JSON.stringify(response.data)) )
     this.prospects.forEach(prospect => {
         let address = prospect.address
         let comma = address.indexOf(',');

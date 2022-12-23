@@ -20,5 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('prospects/all', [ProspectsController::class, 'all']);
-
+Route::get('prospects/prospects_export', [ProspectsController::class, 'get_prospect_data'])->name('export');
+Route::put('prospects/update/{id}', [ProspectsController::class, 'update'])->name('update');
+Route::delete('/delete/{id}', [ProspectsController::class, 'destroy'])->name('delete');
 Route::get('prospects/filter', [ProspectsController::class, 'filteredProspect']);

@@ -13,28 +13,36 @@
         <td></td>
         <td>
 
-         <a href="" class="btn btn-primary">View Prospect</a>
+         <a href="" class="btn btn-primary" @click.prevent="openModal(prospect)" >Edit Prospect</a>
         </td>
         </tr>
 
     </tbody>
-
+<modal modal_title="Edit Restaurant" :modalOpen="state.modalOpen" @close="state.modalOpen = !state.modalOpen" :prospect="state.selectedProspect" v-if="state.selectedProspect" type="update">
+    <update-form :prospect="state.selectedProspect"></update-form>
+</modal>
 </template>
 
 <script>
 import {useProspectStore} from "../store/ProspectStore";
-import {computed} from "vue";
-
+import {computed, reactive, ref} from "vue";
+import Modal from "./layout/TheModal";
+import UpdateForm from "./forms/UpdateForm";
 
 export default {
     name: "ProspectList.vue",
+    components: {Modal, UpdateForm},
     setup(){
         const prospectStore = useProspectStore();
-        prospectStore.fetchProspects()
+        const state = reactive({modalOpen: false, selectedProspect: null});
+        prospectStore.fetchProspects();
 
+        const openModal = (prospect) => {
+            state.modalOpen = true;
+            state.selectedProspect = prospect;
+        }
         const prospects = computed(()=> prospectStore.getProspects)
-        console.log(prospects)
-        return{prospects}
+        return{prospects, openModal, state}
     }
 }
 </script>

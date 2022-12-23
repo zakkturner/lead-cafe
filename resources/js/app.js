@@ -61,9 +61,9 @@ import { createApp } from "vue";
 import App from "./App.vue";
 
 import { createPinia } from "pinia";
-
-
-const app = createApp(App).use(createPinia());
+import router from './router'
+console.log(router)
+const app = createApp(App).use(router).use(createPinia());
 
 app.mount('#app');
 
