@@ -1,12 +1,12 @@
 <template>
     <div class="mt-4">
 <!--        <custom-modal :modalOpen="modalOpen" :idprop="id" @modalClose="closeModal"></custom-modal>-->
-<!--        <custom-message-->
-<!--            :messageprop="message"-->
-<!--            :successprop="success"-->
-<!--            :failprop="failure"-->
-<!--            v-if="showMsg"-->
-<!--        ></custom-message>-->
+        <custom-message
+            :messageprop="message"
+            :successprop="success"
+            :failprop="failure"
+            v-if="showMsg"
+        ></custom-message>
 
 
 
@@ -63,8 +63,10 @@
 
 <script>
 import axios from 'axios';
+import { useProspectStore } from "../../store/ProspectStore";
+import CustomMessage from "../CustomMessage.vue";
 export default {
-
+    components: {CustomMessage},
     props: ['prospect'],
 
     data() {
@@ -84,7 +86,9 @@ export default {
             email: this.prospect.email,
             position: this.prospect.position,
             notes: this.prospect.notes,
-            modalOpen: false
+            modalOpen: false,
+            prospectStore : useProspectStore()
+
         }
 
     },
@@ -124,7 +128,15 @@ export default {
                     }, 500)
 
                 }
-            )
+            ).finally(()=>{
+                setTimeout(()=>{
+                    this.showMsg = false;
+                    this.success = false;
+                    this.message = ''
+                },4000)
+                this.$forceUpdate();
+                this.prospectStore.fetchProspects();
+            })
 
 
         },

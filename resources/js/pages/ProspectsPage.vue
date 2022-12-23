@@ -52,7 +52,7 @@
 
             </div>
         </div>
-        <the-modal >
+        <the-modal :modalOpen="state.modalOpen" @close="state.modalOpen = !state.modalOpen" type="create">
             <create-form></create-form>
         </the-modal>
     </main>
@@ -74,6 +74,7 @@ export default {
             modalOpen: false
         })
         const openModal = () => {
+            console.log('works')
             state.modalOpen = true;
 
         }
@@ -89,7 +90,7 @@ export default {
             })
         }
 
-        return { state, downloadExcel }
+        return { state, downloadExcel, openModal }
     }
 
 

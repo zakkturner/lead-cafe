@@ -4,6 +4,7 @@
         <div class="form-group m-2 d-flex">
             <input class="form-control" type="text" placeholder="Search for Restaurant" v-model="searchQuery"/>
             <button type="submit" class="btn btn-primary" @click="submitSearch">Search</button>
+
         </div>
         </form>
     </div>
@@ -21,8 +22,12 @@ export default {
         const searchQuery = ref("")
        const submitSearch = (e)=>{
            e.preventDefault();
-
-            prospectStore.fetchProspect(searchQuery.value);
+            if(searchQuery.value !== ''){
+                prospectStore.fetchProspect(searchQuery.value);
+            }
+            else {
+                alert('Please Enter a restaurant name in the search bar!')
+            }
        }
        return {submitSearch, searchQuery}
    }

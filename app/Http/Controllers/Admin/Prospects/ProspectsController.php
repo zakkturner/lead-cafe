@@ -175,7 +175,8 @@ class ProspectsController extends Controller {
 //        return view('admin.prospects.search', );
     }
 
-    public function get_prospect_data(){
+    public function get_prospect_data(): \Symfony\Component\HttpFoundation\BinaryFileResponse
+    {
 
         return Excel::download(new ProspectsExport, 'prospects.xlsx');
     }

@@ -56,6 +56,7 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var openModal = function openModal() {
+      console.log('works');
       state.modalOpen = true;
     };
 
@@ -73,7 +74,8 @@ __webpack_require__.r(__webpack_exports__);
 
     return {
       state: state,
-      downloadExcel: downloadExcel
+      downloadExcel: downloadExcel,
+      openModal: openModal
     };
   }
 });
@@ -174,21 +176,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, " Actions "), $setup.state.isActive ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("ul", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     "class": "dropdown-item",
     onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-      return _ctx.openModal && _ctx.openModal.apply(_ctx, arguments);
+      return $setup.openModal && $setup.openModal.apply($setup, arguments);
     }, ["prevent"]))
   }, "Create Prospect")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     "class": "dropdown-item",
     onClick: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $setup.downloadExcel && $setup.downloadExcel.apply($setup, arguments);
     }, ["prevent"]))
-  }, "Download as Excel")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_prospect_list)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_the_modal, null, {
+  }, "Download as Excel")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_prospect_list)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_the_modal, {
+    modalOpen: $setup.state.modalOpen,
+    onClose: _cache[3] || (_cache[3] = function ($event) {
+      return $setup.state.modalOpen = !$setup.state.modalOpen;
+    }),
+    type: "create"
+  }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_create_form)];
     }),
     _: 1
     /* STABLE */
 
-  })]);
+  }, 8
+  /* PROPS */
+  , ["modalOpen"])]);
 }
 
 /***/ }),
@@ -257,13 +267,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _CreateForm_vue_vue_type_template_id_7944b02b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateForm.vue?vue&type=template&id=7944b02b */ "./resources/js/components/forms/CreateForm.vue?vue&type=template&id=7944b02b");
 /* harmony import */ var _CreateForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateForm.vue?vue&type=script&lang=js */ "./resources/js/components/forms/CreateForm.vue?vue&type=script&lang=js");
-/* harmony import */ var C_Users_13177_Documents_laravel_apps_lead_cafe_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _home_eclipsis_Documents_projects_lead_cafe_lead_cafe_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_Users_13177_Documents_laravel_apps_lead_cafe_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_CreateForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_CreateForm_vue_vue_type_template_id_7944b02b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/forms/CreateForm.vue"]])
+const __exports__ = /*#__PURE__*/(0,_home_eclipsis_Documents_projects_lead_cafe_lead_cafe_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_CreateForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_CreateForm_vue_vue_type_template_id_7944b02b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/forms/CreateForm.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -285,7 +295,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ProspectsPage_vue_vue_type_template_id_30730c46__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProspectsPage.vue?vue&type=template&id=30730c46 */ "./resources/js/pages/ProspectsPage.vue?vue&type=template&id=30730c46");
 /* harmony import */ var _ProspectsPage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProspectsPage.vue?vue&type=script&lang=js */ "./resources/js/pages/ProspectsPage.vue?vue&type=script&lang=js");
 /* harmony import */ var _ProspectsPage_vue_vue_type_style_index_0_id_30730c46_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProspectsPage.vue?vue&type=style&index=0&id=30730c46&lang=css */ "./resources/js/pages/ProspectsPage.vue?vue&type=style&index=0&id=30730c46&lang=css");
-/* harmony import */ var C_Users_13177_Documents_laravel_apps_lead_cafe_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _home_eclipsis_Documents_projects_lead_cafe_lead_cafe_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -293,7 +303,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,C_Users_13177_Documents_laravel_apps_lead_cafe_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ProspectsPage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ProspectsPage_vue_vue_type_template_id_30730c46__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/pages/ProspectsPage.vue"]])
+const __exports__ = /*#__PURE__*/(0,_home_eclipsis_Documents_projects_lead_cafe_lead_cafe_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ProspectsPage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ProspectsPage_vue_vue_type_template_id_30730c46__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/pages/ProspectsPage.vue"]])
 /* hot reload */
 if (false) {}
 

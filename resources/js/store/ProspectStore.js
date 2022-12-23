@@ -5,11 +5,15 @@ export const useProspectStore = defineStore("prospects", {
     state() {
         return {
             prospects: [],
+            // prospect
+            selectedProspect: undefined
         };
     },
     getters: {
         getProspects: (state) => state.prospects,
-        getProspect: (state) => state.prospects,
+        getSelectedProspect: (state) => state.selectedProspect
+
+        // getProspect: (state) => state.prospect,
         // getLoadingState: (state) => state.isLoading,
     },
     actions: {

@@ -18,7 +18,7 @@
         </tr>
 
     </tbody>
-<modal modal_title="Edit Restaurant" :modalOpen="state.modalOpen" @close="state.modalOpen = !state.modalOpen" :prospect="state.selectedProspect">
+<modal modal_title="Edit Restaurant" :modalOpen="state.modalOpen" @close="state.modalOpen = !state.modalOpen" :prospect="state.selectedProspect" v-if="state.selectedProspect" type="update">
     <update-form :prospect="state.selectedProspect"></update-form>
 </modal>
 </template>
