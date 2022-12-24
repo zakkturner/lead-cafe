@@ -14,7 +14,7 @@
                 <div class="modal-footer">
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="$emit('close')">Close</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" @click="$emit('close')" v-if="type == 'update'">Delete Prospect</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" @click="$emit('close')" v-if="type === 'update'">Delete Prospect</button>
                 </div>
             </div>
         </div>

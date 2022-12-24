@@ -77,7 +77,7 @@ class ProspectsController extends Controller {
 
 
         // store prospect
-        return redirect()->route('admin.prospects.dashboard')->with('success', 'successfully created a new prospect');
+        return "Successfully created new prospect!";
 
     }
 

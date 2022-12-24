@@ -24,3 +24,4 @@ Route::get('prospects/prospects_export', [ProspectsController::class, 'get_prosp
 Route::put('prospects/update/{id}', [ProspectsController::class, 'update'])->name('update');
 Route::delete('/delete/{id}', [ProspectsController::class, 'destroy'])->name('delete');
 Route::get('prospects/filter', [ProspectsController::class, 'filteredProspect']);
+Route::post('/prospects/create', [ProspectsController::class, 'store'])->name('store');
