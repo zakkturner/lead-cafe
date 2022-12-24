@@ -1,13 +1,13 @@
 <template>
-    <main class="d-flex">
+    <main class="d-flex flex-column ">
 
-        <sidebar></sidebar>
+<!--        <sidebar></sidebar>-->
         <div class="card mt-4 w-60 ms-2">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <h1>Prospects <small class="text-muted">Showing All Prospects</small></h1>
-
-
+            <div class="card-body overflow-auto">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>Prospects <small class="text-muted"> Page: {{currentPage}}</small></h1>
+                    <pagination></pagination>
+                    <search-filter></search-filter>
                     <div class="m1-auto">
                         <div class="dropdown">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button"
@@ -24,24 +24,20 @@
                     </div>
                 </div>
 
-
-
-
-
                 <table class="table table-hover">
 
                     <thead>
                     <tr>
                         <th>Notes</th>
-                        <th>Name of Restaurant</th>
+                        <sort-component name="company">Name of Restaurant</sort-component>
                         <th>Address</th>
                         <th>Tel 1</th>
                         <th>Tel 2</th>
                         <th>Email</th>
                         <th>Website</th>
-                        <th>Contact</th>
+                        <sort-component name="contact">Contact</sort-component>
                         <th>Position</th>
-                        <th>Created At</th>
+                        <sort-component name="created_at">Last Updated</sort-component>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -62,12 +58,20 @@
 import ProspectList from '../components/ProspectList'
 import Sidebar from "../components/layout/Sidebar.vue";
 import Modal from "../components/layout/TheModal";
-import {reactive} from "vue";
+import {computed, reactive} from "vue";
 import axios from "axios";
 import TheModal from "../components/layout/TheModal";
 import CreateForm from "../components/forms/CreateForm";
+import SortComponent from "../components/layout/SortComponent.vue";
+import Pagination from "../components/layout/Pagination.vue";
+import SearchFilter from "../components/filters/SearchFilter.vue";
+
+import {useProspectStore} from "../store/ProspectStore";
+
+
+
 export default {
-    components: {CreateForm, TheModal, Modal, ProspectList, Sidebar},
+    components: {SearchFilter, Pagination, CreateForm, TheModal, Modal, ProspectList, Sidebar, SortComponent},
     setup(){
         const state = reactive({
             isActive: false,
@@ -78,8 +82,11 @@ export default {
             state.modalOpen = true;
 
         }
+        const prospectStore = useProspectStore()
+        const currentPage = computed(() => prospectStore.getCurrentPage)
+
+
         const downloadExcel = () =>{
-            console.log('works');
             axios.get('http://localhost:8000/api/prospects/prospects_export').then(response => {
                 let fileURL = window.URL.createObjectURL(new Blob([response.data]));
                 let fileLink = document.createElement('a');
@@ -90,7 +97,7 @@ export default {
             })
         }
 
-        return { state, downloadExcel, openModal }
+        return { state, downloadExcel, openModal, currentPage}
     }
 
 

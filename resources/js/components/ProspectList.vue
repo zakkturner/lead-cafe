@@ -10,7 +10,7 @@
         <td>{{ prospect.website }}</td>
         <td>{{ prospect.contact}}</td>
         <td>{{ prospect.position }}</td>
-        <td></td>
+        <td>{{new Date(prospect.updated_at).toLocaleString('en-us')}}</td>
         <td>
 
          <a href="" class="btn btn-primary" @click.prevent="openModal(prospect)" >Edit Prospect</a>
@@ -18,8 +18,8 @@
         </tr>
 
     </tbody>
-<modal modal_title="Edit Restaurant" :modalOpen="state.modalOpen" @close="state.modalOpen = !state.modalOpen" :prospect="state.selectedProspect" v-if="state.selectedProspect" type="update">
-    <update-form :prospect="state.selectedProspect"></update-form>
+<modal modal_title="Edit Restaurant" :modalOpen="state.modalOpen" @close="state.modalOpen = !state.modalOpen" type="update">
+    <update-form :prospect="prospectStore.selectedProspect"></update-form>
 </modal>
 </template>
 
@@ -37,12 +37,18 @@ export default {
         const state = reactive({modalOpen: false, selectedProspect: null});
         prospectStore.fetchProspects();
 
+
         const openModal = (prospect) => {
+            console.log(prospect)
             state.modalOpen = true;
-            state.selectedProspect = prospect;
+            prospectStore.selectProspect(prospect);
+            console.log('SelectedProspect', prospectStore.selectedProspect)
         }
-        const prospects = computed(()=> prospectStore.getProspects)
-        return{prospects, openModal, state}
+        const prospects = computed(()=> prospectStore.getSortedProspects)
+
+        console.log(prospects)
+
+        return{prospects, openModal, prospectStore, state}
     }
 }
 </script>
