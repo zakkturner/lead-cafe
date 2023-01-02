@@ -23,6 +23,7 @@ export default {
        const submitSearch = (e)=>{
            e.preventDefault();
             if(searchQuery.value !== ''){
+                console.log(searchQuery);
                 prospectStore.fetchProspect(searchQuery.value);
             }
             else {

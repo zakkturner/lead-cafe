@@ -11,6 +11,9 @@ export const useProspectStore = defineStore("prospects", {
             //Pagination state
             pageSize: 10,
             currentPage: 1,
+            //searchState
+            // enteredSearchQuery: false
+
 
         };
     },
@@ -32,7 +35,8 @@ export const useProspectStore = defineStore("prospects", {
             });
         },
         getPageAmount: (state) => Math.round(state.prospects.length / state.pageSize),
-        getCurrentPage: (state) => state.currentPage
+        getCurrentPage: (state) => state.currentPage,
+        // getIfEnteredSearchQuery:(state) => state.enteredSearchQuery
     },
     actions: {
         async fetchProspects() {
@@ -74,5 +78,6 @@ export const useProspectStore = defineStore("prospects", {
         jumpToPage: function(newPageNum){
             this.currentPage = newPageNum
         }
+
     },
 });

@@ -135,7 +135,8 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup() {
     var state = (0,vue__WEBPACK_IMPORTED_MODULE_3__.reactive)({
       isActive: false,
-      modalOpen: false
+      modalOpen: false,
+      isEmpty: true
     });
 
     var openModal = function openModal() {
