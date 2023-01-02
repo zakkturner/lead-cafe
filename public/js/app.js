@@ -20549,9 +20549,10 @@ __webpack_require__.r(__webpack_exports__);
       e.preventDefault();
 
       if (searchQuery.value !== '') {
+        console.log(searchQuery);
         prospectStore.fetchProspect(searchQuery.value);
       } else {
-        alert('Please Enter a restaurant name in the search bar!');
+        prospectStore.fetchProspects();
       }
     };
 
@@ -21507,7 +21508,9 @@ var useProspectStore = (0,pinia__WEBPACK_IMPORTED_MODULE_1__.defineStore)("prosp
       currentSortDir: 'asc',
       //Pagination state
       pageSize: 10,
-      currentPage: 1
+      currentPage: 1 //searchState
+      // enteredSearchQuery: false
+
     };
   },
   getters: {
@@ -21535,7 +21538,8 @@ var useProspectStore = (0,pinia__WEBPACK_IMPORTED_MODULE_1__.defineStore)("prosp
     },
     getCurrentPage: function getCurrentPage(state) {
       return state.currentPage;
-    }
+    } // getIfEnteredSearchQuery:(state) => state.enteredSearchQuery
+
   },
   actions: {
     fetchProspects: function fetchProspects() {

@@ -75,7 +75,8 @@ export default {
     setup(){
         const state = reactive({
             isActive: false,
-            modalOpen: false
+            modalOpen: false,
+            isEmpty: true
         })
         const openModal = () => {
             console.log('works')
