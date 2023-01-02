@@ -20552,7 +20552,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(searchQuery);
         prospectStore.fetchProspect(searchQuery.value);
       } else {
-        alert('Please Enter a restaurant name in the search bar!');
+        prospectStore.fetchProspects();
       }
     };
 
