@@ -16,8 +16,8 @@ import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 library.add(faAngleUp, faAngleDown)
 
 import { createPinia } from "pinia";
-import router from './router'
-console.log(router)
+import router from './router';
+console.log(router);
 const app = createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).use(createPinia());
 
 app.mount('#app');
