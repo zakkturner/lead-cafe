@@ -13,7 +13,7 @@ class ProspectsController extends Controller {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -39,7 +39,7 @@ class ProspectsController extends Controller {
             $prospects = $prospects->where('company', 'like', '%' . request('search'). '%')->get();
         }
         //Show all prospects and manage
-        return $prospects;
+        return view('admin.prospects.index', ['prospects' => Prospect::latest()->paginate(20)]);
 
     }
 
@@ -77,7 +77,7 @@ class ProspectsController extends Controller {
 
 
         // store prospect
-        return "Successfully created new prospect!";
+        return redirect()->route('admin.prospects.dashboard')->with('success', 'successfully created a new prospect');
 
     }
 
@@ -133,7 +133,7 @@ class ProspectsController extends Controller {
     {
 
         $prospect = Prospect::findOrFail($id)->delete();
-        if (request()->wantsJson()) {
+        if (\request()->wantsJson()) {
             return response()->json([
                 'alert_delete' => 'Selected query is deleted successfully.'
             ]);
@@ -171,13 +171,11 @@ class ProspectsController extends Controller {
 
 
 
-        return $results;
+        return view('admin.prospects.search')->with('results', $results);
 //        return view('admin.prospects.search', );
     }
 
-    public function get_prospect_data(): \Symfony\Component\HttpFoundation\BinaryFileResponse
-    {
-
+    public function get_prospect_data(){
         return Excel::download(new ProspectsExport, 'prospects.xlsx');
     }
 }
