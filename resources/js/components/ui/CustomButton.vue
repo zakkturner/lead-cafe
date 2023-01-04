@@ -3,7 +3,6 @@
         <button class="btn btn-success" @click.prevent="addProspect">{{title}}</button>
     </div>
 </template>
-
 <script>
 import axios from 'axios';
 import {useSearchStore} from "../../store/SearchStore";
