@@ -6,7 +6,6 @@ use App\Http\Controllers\Admin\Prospects\ProspectsController;
 //name: admin.prospects.create
 
 Route::get('/', [ProspectsController::class, 'index'])->name('dashboard');
-Route::get('/{all}', [ProspectsController::class, 'index'])->where(['all' => '.*']);
 Route::get('create', [ProspectsController::class, 'create'])->name('create');
 Route::get('/show/{id}', [ProspectsController::class, 'show'])->name('show');
 Route::put('/update/{id}', [ProspectsController::class, 'update'])->name('update');

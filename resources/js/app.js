@@ -1,27 +1,36 @@
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
 
+require('./bootstrap');
 
-import { createApp } from "vue";
-import App from "./App.vue";
+window.Vue = require('vue').default;
 
-/* import the fontawesome core */
-import { library } from '@fortawesome/fontawesome-svg-core'
+/**
+ * The following block of code may be used to automatically register your
+ * Vue components. It will recursively scan this directory for the Vue
+ * components and automatically register them with their "basename".
+ *
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ */
 
-/* import font awesome icon component */
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-/* import specific icons */
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('custom-button', require('./components/CustomButton.vue').default);
+Vue.component('prospect-card', require('./components/ProspectCard.vue').default);
+Vue.component('custom-message', require('./components/CustomMessage.vue').default);
+Vue.component('custom-modal', require('./components/CustomModal.vue').default);
 
-/* add icons to the library */
-library.add(faAngleUp, faAngleDown)
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
 
-import { createPinia } from "pinia";
-import router from './router'
-console.log(router)
-const app = createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).use(createPinia());
-
-app.mount('#app');
-
-// router.isReady().then(() => {
-//     app.mount("#app");
-// });
+const app = new Vue({
+    el: '#app',
+});
