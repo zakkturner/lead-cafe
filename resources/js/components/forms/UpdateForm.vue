@@ -63,7 +63,7 @@
 <script>
 import axios from 'axios';
 import { useProspectStore } from "../../store/ProspectStore";
-import CustomMessage from "../CustomMessage.vue";
+import CustomMessage from "../ui/CustomMessage.vue";
 import {computed, reactive, ref, toRefs} from "vue";
 export default {
     components: {CustomMessage},
