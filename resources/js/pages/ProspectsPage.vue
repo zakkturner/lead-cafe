@@ -1,7 +1,8 @@
 <template>
+    <base-layout>
+
     <main class="d-flex flex-column ">
 
-<!--        <sidebar></sidebar>-->
         <div class="card mt-4 w-60 ms-2">
             <div class="card-body overflow-auto">
                 <div class="d-flex justify-content-between align-items-center">
@@ -16,6 +17,7 @@
                                 Actions
                             </button>
                             <ul class="custom-dropdown-menu" v-if="state.isActive">
+                                <li><a class="dropdown-item" href="/prospects/search"> Search for Prospects</a></li>
                                 <li><a class="dropdown-item" @click.prevent="openModal">Create
                                     Prospect</a></li>
                                 <li><a class="dropdown-item" @click.prevent="downloadExcel">Download as Excel</a></li>
@@ -52,26 +54,29 @@
             <create-form></create-form>
         </the-modal>
     </main>
+    </base-layout>
+        
 </template>
 <script>
 
-import ProspectList from '../components/ProspectList'
-import Sidebar from "../components/layout/Sidebar.vue";
-import Modal from "../components/layout/TheModal";
+import ProspectList from '../components/ui/ProspectList.vue'
+import Sidebar from "../components/ui/Sidebar.vue";
+import Modal from "../components/ui/TheModal";
 import {computed, reactive} from "vue";
 import axios from "axios";
-import TheModal from "../components/layout/TheModal";
+import TheModal from "../components/ui/TheModal";
 import CreateForm from "../components/forms/CreateForm";
-import SortComponent from "../components/layout/SortComponent.vue";
-import Pagination from "../components/layout/Pagination.vue";
+import SortComponent from "../components/ui/SortComponent.vue";
+import Pagination from "../components/ui/Pagination.vue";
 import SearchFilter from "../components/filters/SearchFilter.vue";
+import BaseLayout from "../components/template/BaseLayout.vue";
 
 import {useProspectStore} from "../store/ProspectStore";
 
 
 
 export default {
-    components: {SearchFilter, Pagination, CreateForm, TheModal, Modal, ProspectList, Sidebar, SortComponent},
+    components: {SearchFilter, Pagination, CreateForm, TheModal, Modal, ProspectList, Sidebar, SortComponent, BaseLayout},
     setup(){
         const state = reactive({
             isActive: false,
