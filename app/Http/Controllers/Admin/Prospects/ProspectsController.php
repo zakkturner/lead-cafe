@@ -13,12 +13,33 @@ class ProspectsController extends Controller {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
+        $prospects = Prospect::latest();
+        if(request('search')){
+            dd(request('search'));
+            $prospects->where('company', 'like', '%' . request('search'). '%');
+        }
         //Show all prospects and manage
-        return view('admin.prospects.index', ['prospects' => Prospect::latest()->paginate(20)]);
+        return view('admin.prospects.index', ['prospects' => $prospects->paginate(20)]);
+
+    }
+
+    public function all()
+    {
+        return Prospect::all();
+    }
+
+    public function filteredProspect()
+    {
+        $prospects = Prospect::latest();
+        if(request('search')){
+            $prospects = $prospects->where('company', 'like', '%' . request('search'). '%')->get();
+        }
+        //Show all prospects and manage
+        return $prospects;
 
     }
 
@@ -138,7 +159,7 @@ class ProspectsController extends Controller {
                 "q" => $q,
                 "hl" => "en",
                 "ll" => "@33.7455096,-84.0083012,14z",
-               "num" => "50"
+                "num" => "50"
             ];
 
             $search = new GoogleSearch('869a3e4a2dd98e6eb454e4b2da28e81ebcd7762ff2f71a71c732a1dc353de165');
