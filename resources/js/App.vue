@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import ProspectList from "./components/ProspectList";
-import Sidebar from "./components/layout/Sidebar";
+import ProspectList from "./components/ui/ProspectList.vue";
+import Sidebar from "./components/ui/Sidebar";
 export default {
     name: "App.vue",
     components: {Sidebar, ProspectList },

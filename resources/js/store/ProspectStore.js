@@ -7,7 +7,7 @@ export const useProspectStore = defineStore("prospects", {
             prospects: [],
             selectedProspect:undefined,
             currentSort: 'created_at',
-            currentSortDir: 'asc',
+            currentSortDir: 'desc',
             //Pagination state
             pageSize: 10,
             currentPage: 1,

@@ -171,7 +171,7 @@ class ProspectsController extends Controller {
 
 
 
-        return view('admin.prospects.search')->with('results', $results);
+        return $results;
 //        return view('admin.prospects.search', );
     }
 
