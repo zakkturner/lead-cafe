@@ -40,7 +40,7 @@ export default {
                message.failure = false;
                setTimeout(() => {
                    message.showMsg = false;
-               }, 5000)
+               }, 5000);
            }).catch((err)=>{
                message.text = err.message;
                message.showMsg = true;
@@ -48,7 +48,7 @@ export default {
                message.failure = true;
                setTimeout(() => {
                    message.showMsg = false;
-               }, 5000)
+               }, 5000);
            })
         }
         return {addProspect}
