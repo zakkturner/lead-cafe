@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import {useProspectStore} from "../../store/ProspectStore";
+import {useProspectStore} from "../store/ProspectStore";
 import {computed, reactive, ref} from "vue";
-import Modal from "./TheModal.vue";
-import UpdateForm from "../forms/UpdateForm.vue";
+import Modal from "./layout/TheModal";
+import UpdateForm from "./forms/UpdateForm";
 
 export default {
     name: "ProspectList.vue",
