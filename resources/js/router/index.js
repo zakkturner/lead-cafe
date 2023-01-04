@@ -11,14 +11,10 @@ const routes = [
         component: () => import('../pages/ProspectsPage.vue'),
     },
 
-            // {
-            //     path: '/prospects/:id',
-            //     component: () => import('../pages/ProspectDetails.vue')
-            // },
-    {
-        path: '/prospects/search',
-        component: () => import('../pages/ProspectSearch.vue')
-    }
+            {
+                path: '/prospects/:id',
+                component: () => import('../pages/ProspectDetails.vue')
+            },
 
 
 

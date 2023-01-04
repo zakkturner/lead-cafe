@@ -65,7 +65,7 @@
 <script>
 import {reactive} from "vue";
 import axios from "axios";
-import CustomMessage from "../ui/CustomMessage.vue";
+import CustomMessage from "../CustomMessage.vue";
 export default {
     name: "CreateForm",
     components: {CustomMessage},
