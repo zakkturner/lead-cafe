@@ -10,8 +10,8 @@
                     <p>This cannot be undone!</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" @click="$emit(modalOpen = false)">Close</button>
-                    <button type="button" class="btn btn-danger" @click="deleteRequest">Delete Prospect</button>
+                    <button type="button" class="btn btn-secondary" @click.prevent="$emit(modalOpen = false)">Close</button>
+                    <button type="button" class="btn btn-danger" @click.prevent="deleteRequest">Delete Prospect</button>
                 </div>
             </div>
         </div>
