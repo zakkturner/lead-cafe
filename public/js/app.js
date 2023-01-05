@@ -21557,7 +21557,7 @@ var useProspectStore = (0,pinia__WEBPACK_IMPORTED_MODULE_1__.defineStore)("prosp
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost:8000/api/prospects/all");
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/prospects/all");
 
               case 3:
                 data = _context.sent;
@@ -21590,7 +21590,7 @@ var useProspectStore = (0,pinia__WEBPACK_IMPORTED_MODULE_1__.defineStore)("prosp
               case 0:
                 _context2.prev = 0;
                 _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost:8000/api/prospects/filter/?search=".concat(searchQuery));
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/prospects/filter/?search=".concat(searchQuery));
 
               case 3:
                 data = _context2.sent;

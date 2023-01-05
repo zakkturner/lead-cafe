@@ -42,7 +42,7 @@ export const useProspectStore = defineStore("prospects", {
         async fetchProspects() {
             try {
                 const data = await axios.get(
-                    "http://localhost:8000/api/prospects/all"
+                    "/api/prospects/all"
                 );
                 this.prospects = data.data;
             } catch (error) {
@@ -52,7 +52,7 @@ export const useProspectStore = defineStore("prospects", {
         },
         async fetchProspect(searchQuery){
             try {
-                const data = await axios.get(`http://localhost:8000/api/prospects/filter/?search=${searchQuery}`);
+                const data = await axios.get(`/api/prospects/filter/?search=${searchQuery}`);
                 this.prospects = data.data
             }
             catch (error) {

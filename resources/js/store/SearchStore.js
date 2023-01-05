@@ -23,7 +23,7 @@ export const useSearchStore = defineStore("search", {
         async fetchProspects() {
             try {
                 const data = await axios.get(
-                    "http://localhost:8000/api/prospects/all"
+                    "/api/prospects/all"
                 );
                 this.prospects = data.data;
             } catch (error) {
@@ -34,7 +34,7 @@ export const useSearchStore = defineStore("search", {
         async searchGoogleProspects(query){
             try {
                 /** @namespace results **/
-                const data = await axios.get(`http://localhost:8000/api/prospects/search/?query=${query}`);
+                const data = await axios.get(`/api/prospects/search/?query=${query}`);
                 this.results = data.data
             }
             catch (error) {

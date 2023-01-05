@@ -517,7 +517,7 @@ var useSearchStore = (0,pinia__WEBPACK_IMPORTED_MODULE_1__.defineStore)("search"
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost:8000/api/prospects/all");
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/prospects/all");
 
               case 3:
                 data = _context.sent;
@@ -550,7 +550,7 @@ var useSearchStore = (0,pinia__WEBPACK_IMPORTED_MODULE_1__.defineStore)("search"
               case 0:
                 _context2.prev = 0;
                 _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost:8000/api/prospects/search/?query=".concat(query));
+                return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/prospects/search/?query=".concat(query));
 
               case 3:
                 data = _context2.sent;
