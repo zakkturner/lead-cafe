@@ -20727,6 +20727,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _forms_UpdateForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../forms/UpdateForm */ "./resources/js/components/forms/UpdateForm.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _store_ProspectStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/ProspectStore */ "./resources/js/store/ProspectStore.js");
+
 
 
 
@@ -20745,12 +20747,31 @@ __webpack_require__.r(__webpack_exports__);
     modal_title: String
   },
   setup: function setup(props) {
+    var prospectStore = (0,_store_ProspectStore__WEBPACK_IMPORTED_MODULE_3__.useProspectStore)();
+    var prospect = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return prospectStore.selectedProspect;
+    });
     var prospectDisplayed = props.prospect;
 
-    var deleteProspect = function deleteProspect(id) {};
+    var deleteProspect = function deleteProspect(id) {
+      // let restaurantName = prospect.company
+      if (confirm("Are you sure you want to delete?")) {
+        axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]('/api/prospects/delete/' + id).then(function (response) {
+          console.log(response.data);
+        }).then(function () {
+          prospectStore.fetchProspects();
+        })["catch"](function (err) {
+          return console.log(err.message);
+        })["finally"](function () {
+          return alert("Prospect was deleted");
+        });
+      }
+    };
 
     return {
-      prospectDisplayed: prospectDisplayed
+      prospectDisplayed: prospectDisplayed,
+      deleteProspect: deleteProspect,
+      prospect: prospect
     };
   }
 });
@@ -21384,7 +21405,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "btn btn-danger",
     "data-dismiss": "modal",
     onClick: _cache[2] || (_cache[2] = function ($event) {
-      return _ctx.$emit('close');
+      return $setup.deleteProspect($setup.prospect.id);
     })
   }, "Delete Prospect")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])], 512
   /* NEED_PATCH */
