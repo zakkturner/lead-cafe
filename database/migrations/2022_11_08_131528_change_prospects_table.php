@@ -15,7 +15,8 @@ class ChangeProspectsTable extends Migration
     {
         //
         Schema::table('prospects', function (Blueprint $table){
-            $table->renameColumn('web_url', 'website');
+//            $table->renameColumn('web_url', 'website');
+            $table->string('phone_one')->nullable()->change();
         });
     }
 
