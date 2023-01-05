@@ -33,7 +33,7 @@ export default {
 
             console.log(newProspect)
             axios.post('/api/prospects/create', newProspect).then(response =>{
-                console.log(response)
+                console.log(response);
                 message.text = "Added Successfully";
                 message.showMsg = true;
                 message.success = true;
