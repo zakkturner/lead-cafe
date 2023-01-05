@@ -1,6 +1,5 @@
 <template>
     <div class="mt-4">
-<!--        <custom-modal :modalOpen="modalOpen" :idprop="id" @modalClose="closeModal"></custom-modal>-->
         <custom-message
             :messageprop="state.message"
             :successprop="state.success"
@@ -71,9 +70,7 @@ export default {
 
     setup(props){
         const prospectStore = useProspectStore();
-        // const prospect = prospectStore.selectedProspect;
-        // const { prospect } = toRefs(props)
-        // console.log (prospect.id)
+
         const state = reactive({
             edit: false,
             showMsg:false,
@@ -83,7 +80,6 @@ export default {
 
         })
 
-        // console.log( 'Prospect', props.prospect);
 
       const onSubmit = (e) => {
 
@@ -123,10 +119,6 @@ export default {
 
         }
 
-        // const closeModal = () =>{
-        //     this.prospectStore.selectedProspect = undefined
-        //     this.modalOpen = false;
-        // }
 
         return {
           state,

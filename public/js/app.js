@@ -20438,7 +20438,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     submitFilter: function submitFilter(e) {
       e.preventDefault();
       console.log(this.selectedCities);
-      var res = axios.get('http://localhost:8000/api/prospects/all', {
+      var res = axios.get('/api/prospects/all', {
         headers: {
           'content-type': 'application/x-www-form-urlencoded'
         },
@@ -20519,17 +20519,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: ['prospect'],
   setup: function setup(props) {
-    var prospectStore = (0,_store_ProspectStore__WEBPACK_IMPORTED_MODULE_1__.useProspectStore)(); // const prospect = prospectStore.selectedProspect;
-    // const { prospect } = toRefs(props)
-    // console.log (prospect.id)
-
+    var prospectStore = (0,_store_ProspectStore__WEBPACK_IMPORTED_MODULE_1__.useProspectStore)();
     var state = (0,vue__WEBPACK_IMPORTED_MODULE_3__.reactive)({
       edit: false,
       showMsg: false,
       message: '',
       success: false,
       failure: false
-    }); // console.log( 'Prospect', props.prospect);
+    });
 
     var onSubmit = function onSubmit(e) {
       axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/prospects/update/".concat(prospectStore.selectedProspect.id), prospectStore.selectedProspect).then(function (response) {
@@ -20557,11 +20554,7 @@ __webpack_require__.r(__webpack_exports__);
 
         prospectStore.fetchProspects();
       });
-    }; // const closeModal = () =>{
-    //     this.prospectStore.selectedProspect = undefined
-    //     this.modalOpen = false;
-    // }
-
+    };
 
     return {
       state: state,
@@ -21030,7 +21023,7 @@ var _hoisted_21 = /*#__PURE__*/_withScopeId(function () {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_custom_message = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("custom-message");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <custom-modal :modalOpen=\"modalOpen\" :idprop=\"id\" @modalClose=\"closeModal\"></custom-modal>"), $setup.state.showMsg ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_custom_message, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [$setup.state.showMsg ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_custom_message, {
     key: 0,
     messageprop: $setup.state.message,
     successprop: $setup.state.success,

@@ -190,7 +190,7 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var downloadExcel = function downloadExcel() {
-      axios__WEBPACK_IMPORTED_MODULE_4___default().get('http://localhost:8000/api/prospects/prospects_export').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_4___default().get('/api/prospects/prospects_export').then(function (response) {
         var fileURL = window.URL.createObjectURL(new Blob([response.data]));
         var fileLink = document.createElement('a');
         fileLink.href = fileURL;

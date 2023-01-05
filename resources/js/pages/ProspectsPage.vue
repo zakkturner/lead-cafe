@@ -55,7 +55,7 @@
         </the-modal>
     </main>
     </base-layout>
-        
+
 </template>
 <script>
 
@@ -93,7 +93,7 @@ export default {
 
 
         const downloadExcel = () =>{
-            axios.get('http://localhost:8000/api/prospects/prospects_export').then(response => {
+            axios.get('/api/prospects/prospects_export').then(response => {
                 let fileURL = window.URL.createObjectURL(new Blob([response.data]));
                 let fileLink = document.createElement('a');
                 fileLink.href = fileURL;

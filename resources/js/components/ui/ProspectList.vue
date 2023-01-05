@@ -36,8 +36,6 @@ export default {
         const prospectStore = useProspectStore();
         const state = reactive({modalOpen: false, selectedProspect: null});
         prospectStore.fetchProspects();
-
-
         const openModal = (prospect) => {
             console.log(prospect)
             state.modalOpen = true;

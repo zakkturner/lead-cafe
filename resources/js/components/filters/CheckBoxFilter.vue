@@ -48,7 +48,7 @@ export default {
         submitFilter(e){
             e.preventDefault();
             console.log(this.selectedCities)
-           const res = axios.get('http://localhost:8000/api/prospects/all', {
+           const res = axios.get('/api/prospects/all', {
                 headers: {'content-type': 'application/x-www-form-urlencoded'},
                     params: {
                         selectedCities: this.selectedCities
