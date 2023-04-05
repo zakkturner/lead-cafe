@@ -83,7 +83,7 @@ A CRM For restaurant leads. It uses SERP API to scrape google maps and the user 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
+<!-- 
 ### Built With
 
 
@@ -94,5 +94,5 @@ A CRM For restaurant leads. It uses SERP API to scrape google maps and the user 
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+ -->
 
